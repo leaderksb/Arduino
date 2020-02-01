@@ -1,0 +1,23 @@
+int arLed[5] = {13, 12, 11, 10, 9};
+
+void setup()
+{
+//  arLed[0] = 13;
+//  arLed[1] = 12;
+//  arLed[2] = 11;
+//  arLed[3] = 10;
+//  arLed[4] = 9;
+  for(int i=0; i<5; i++){
+  pinMode(arLed[i], OUTPUT);
+  }
+}
+
+void loop()
+{
+  for(int i=0; i<5; i++){
+  digitalWrite(arLed[i], HIGH);
+  delay(1000); // Wait for 1000 millisecond(s)
+  digitalWrite(arLed[i], LOW);
+  delay(1000); // Wait for 1000 millisecond(s)
+  }
+}
