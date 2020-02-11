@@ -1,0 +1,30 @@
+#define echo 2
+#define trig 4
+
+void setup() {
+  Serial.begin(115200);
+  Serial.println("Hello Arduino!");
+
+  pinMode(trig, OUTPUT);
+  pinMode(echo, INPUT);
+}
+
+void loop() {
+  long duration, distance;
+  
+  digitalWrite(trig, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trig, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trig, LOW);
+
+  duration = pulseIn(echo, HIGH);
+
+  distance = duration / 29 / 2;
+
+  Serial.print(distance);
+  Serial.print("cm");
+  Serial.println();
+
+  delay(500);
+}
