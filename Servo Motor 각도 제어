@@ -1,0 +1,27 @@
+#include <Servo.h>
+#define servo 3
+
+Servo microServo;
+
+void setup() {
+  Serial.begin(115200);
+  Serial.println("Hello Arduino!");
+  microServo.attach(servo);   
+}
+
+void loop() {
+  int angle;
+
+  for(angle = 0; angle < 180; angle ++)
+  {
+    microServo.write(angle);
+    Serial.println(angle);
+    delay(10);
+  }
+  for(angle = 180; angle > 0; angle--)
+  {
+    microServo.write(angle);
+    Serial.println(angle);
+    delay(10);
+  }
+}
