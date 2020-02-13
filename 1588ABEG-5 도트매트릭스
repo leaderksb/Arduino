@@ -1,0 +1,28 @@
+int rowPins[] = {13, 12, 11, 10, A3, A2, A1, A0};
+int colPins[] = {9, 8, 7, 6, 5, 4, 3, 2};
+int mask[8][8] = {
+  {0,0,0,0,0,0,0,0},
+  {0,1,1,0,0,1,1,0},
+  {1,1,1,1,1,1,1,1},
+  {1,1,1,1,1,1,1,1},
+  {0,1,1,1,1,1,1,0},
+  {0,0,1,1,1,1,0,0},
+  {0,0,0,1,1,0,0,0},
+  {0,0,0,0,0,0,0,0}
+  };
+void setup() {
+  for(int i = 0; i < 8; ++i){
+    pinMode(rowPins[i], OUTPUT);
+    pinMode(colPins[i], OUTPUT);
+  }
+}
+
+void loop() {
+  for(int r = 0; r < 8; ++r){
+    for(int c = 0; c < 8; ++c)
+        digitalWrite(colPins[c], ((mask[r][c] == 1) ? LOW : HIGH));
+      digitalWrite(rowPins[r], HIGH);
+      delay(1000);
+      digitalWrite(rowPins[r], LOW);
+  }
+}
